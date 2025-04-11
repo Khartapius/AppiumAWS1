@@ -1,11 +1,21 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "Installing Node.js dependencies..."
+      - npm ci  # Or npm install, if you prefer
+
   build:
     commands:
-      - chmod +x ./gradlew
-      - ./gradlew assembleDebug
+      - echo "Installing Maven dependencies (skipping tests)..."
+      - mvn clean install -DskipTests -U
+      - echo "Running Appium tests..."
+      - npm test  # This runs your test suite targeting the cloud provider
+
 artifacts:
   files:
-     - './android/app/build/outputs/**/*.apk'
+    - 'results/**/*'  # Adjust if your test outputs go somewhere else
   discard-paths: yes
