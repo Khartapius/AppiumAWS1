@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  },
+  "scripts": {
+    "test": "mvn test -PRegression -Djava.awt.headless=true"
+  }
+}
