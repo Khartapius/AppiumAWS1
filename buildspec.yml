@@ -17,5 +17,6 @@ phases:
 
 artifacts:
   files:
+    - 'target/*.jar'
     - 'results/**/*'  # Adjust if your test outputs go somewhere else
   discard-paths: yes
